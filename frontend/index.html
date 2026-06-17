@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- AUTH SECTION -->
+  <div id="auth-section">
+    <div class="card" id="login-form">
+      <h2>Login</h2>
+      <input type="text"     id="login-username" placeholder="Username" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p>No account? <a href="#" onclick="showRegister()">Register</a></p>
+    </div>
+
+    <div class="card hidden" id="register-form">
+      <h2>Register</h2>
+      <input type="text"     id="reg-username" placeholder="Username" />
+      <input type="email"    id="reg-email"    placeholder="Email" />
+      <input type="password" id="reg-password" placeholder="Password (min 6 chars)" />
+      <button onclick="register()">Register</button>
+      <p>Have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+  </div>
+
+  <!-- TASK SECTION (hidden until logged in) -->
+  <div id="task-section" class="hidden">
+    <header>
+      <h1>My Tasks</h1>
+      <button class="btn-danger" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="card">
+      <h3>Add New Task</h3>
+      <input  type="text" id="task-title"       placeholder="Task title" />
+      <textarea           id="task-description" placeholder="Description (optional)"></textarea>
+      <select id="task-status">
+        <option value="todo">To Do</option>
+        <option value="in_progress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button onclick="createTask()">Add Task</button>
+    </div>
+
+    <div id="task-list"></div>
+  </div>
+
+  <div id="message"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
